@@ -1,8 +1,8 @@
 CV:
-	rm *.pdf
-	pdflatex main.tex
-	pdflatex main.tex
-	pdflatex main.tex
-	rm *.aux
-	rm *.log
-	rm *.out
+	rm -rf *.pdf
+	pdflatex jolfzverb.tex
+	pdflatex jolfzverb.tex
+	pdflatex jolfzverb.tex
+	rm -rf *.aux
+	rm -rf *.log
+	rm -rf *.out

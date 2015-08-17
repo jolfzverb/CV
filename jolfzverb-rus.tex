@@ -1,0 +1,95 @@
+%TODO: translate it
+% used template from moderncv
+\documentclass[11pt,a4paper]{moderncv}
+
+\moderncvstyle{classic}
+\moderncvcolor{grey}
+
+\usepackage[utf8]{inputenc}
+\usepackage{footmisc}
+
+\usepackage[vscale=0.9, hscale=0.8]{geometry}
+
+\name{Yury}{Usishchev}
+\address{Moscow, Russia}
+\phone[mobile]{+7~916~920~79~91}
+\email{jolfzverb@gmail.com}
+\social[linkedin]{usishchev}
+\social[github]{jolfzverb}
+\social[stackoverflow][stackoverflow.com/users/5024480/yury-usishchev]
+       {yury-usishchev}
+%\photo[64pt][0.4pt]{picture} %TODO
+\pretolerance=10000
+\tolerance=-1
+
+\begin{document}
+
+\makecvtitle
+\section{Technical skills}
+\label{sec:skills}
+\subsection{Basic skills}
+\cvline
+  {Unix}{overall system knowledge: memory management, process management, vfs, networks,\linebreak{} lots of experience in single-line text processing, good issues investigation skills}
+\cvline
+  {Languages}{C, bash, sed, C++, perl, python}
+\subsection{Developer tools}
+\cvdoubleitem
+  {SCM}{git, svn}
+  {Testing}{googletest, check; ctest, dejagnu}
+\cvdoubleitem
+  {Build}{make, cmake, autotools}
+  {Packaging}{rpm, rpmbuild}
+\cvdoubleitem
+  {Debug}{gdb, strace, objdump, readelf}
+  {Status}{top, iotop, traceroute, tcpdump}
+\cvdoubleitem
+  {Profiling}{valgrind, perf}
+  {Docs}{doxygen, \LaTeX}
+\subsection{Developer systems}
+\cvdoubleitem
+  {Bug tracking}{Gerrit, Jira, Confluence}
+  {Build system}{OBS}
+
+\section{Experience}
+\label{sec:exp}
+\cventry{2013--now}{Software Engineer}{Samsung Research Russia}{Moscow}{}
+        {Tizen toolchain support and development.\newline{}
+Detailed achievements:
+\begin{itemize}
+\item Enabled new architecture in Tizen, AArch64\footnotemark[1]
+\item Hand-optimized routines for low-level image processing in Enlightenment
+      Foundation Libraries using inline asm code and GCC intrinsics for ARM and
+      AArch64.\footnotemark[2]
+\item Multiple toolchain enhancements in Tizen build system\footnotemark[3]
+  \begin{itemize}
+    \item Enabled project-wide address sanitizer\footnotemark[4]
+    \item Enabled project-wide clang build
+  \end{itemize}
+\end{itemize}}
+\cventry{2012--2014}{Junior Researcher}
+        {Technological Institute for Superhard and Novel Carbon Materials}
+        {Moscow}{}{Development of new image processing system in
+                   Scanning Probe Microscope(C++, OpenCV)}
+
+\footnotetext[1]{\href{https://lists.tizen.org/pipermail/dev/2014-December/005511.html}
+                      {\texttt{https://lists.tizen.org/pipermail/dev/2014-December/005511.html}}
+                }
+\footnotetext[2]{\href{https://phab.enlightenment.org/p/jolfzverb/}
+                      {\texttt{https://phab.enlightenment.org/p/jolfzverb/}}
+                }
+\footnotetext[3]{\href{https://build.tizen.org/}
+                      {\texttt{https://build.tizen.org/}}
+                }
+\footnotetext[4]{\href{http://lists.gnu.org/archive/html/bug-coreutils/2015-02/msg00005.html}
+                      {\texttt{http://lists.gnu.org/archive/html/bug-coreutils/2015-02/msg00005.html}}
+                }
+
+\section{Education}
+\label{sec:edu}
+\cventry{2012--2014}{Applied Mathematics and Physics, Master}
+        {Moscow Institute of Physics and Technology}{}{}{}
+\cventry{2007--2012}{Applied Mathematics and Physics, Bachelor}
+        {Moscow Institute of Physics and Technology}{}{}{}
+
+
+\end{document}
