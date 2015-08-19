@@ -1,0 +1,105 @@
+=== modified file 'moderncv.cls'
+--- moderncv.cls	2013-04-29 17:45:09 +0000
++++ moderncv.cls	2013-07-14 20:07:39 +0000
+@@ -249,7 +249,7 @@
+ 
+ % adds a social link to one's personal information (optional)
+ % usage: \social[<optional type>][<optional url>]{<account name>}
+-% where <optional type> should be either "linkedin", "twitter" or "github"
++% where <optional type> should be either "linkedin", "twitter", "github" or "stackoverflow"
+ \collectionnew{socials}
+ \NewDocumentCommand{\social}{O{}O{}m}{%
+   \ifthenelse{\equal{#2}{}}%
+@@ -257,6 +257,7 @@
+       \ifthenelse{\equal{#1}{linkedin}}{\collectionadd[linkedin]{socials}{\protect\httplink[#3]{www.linkedin.com/in/#3}}}{}%
+       \ifthenelse{\equal{#1}{twitter}} {\collectionadd[twitter]{socials} {\protect\httplink[#3]{www.twitter.com/#3}}}    {}%
+       \ifthenelse{\equal{#1}{github}}  {\collectionadd[github]{socials}  {\protect\httplink[#3]{www.github.com/#3}}}     {}%
++      \ifthenelse{\equal{#1}{stackoverflow}}{\collectionadd[stackoverflow]{socials}{\protect\httplink[#3]{www.stackoverflow.com}}}{}%
+     }
+     {\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
+ 
+@@ -296,6 +297,7 @@
+ \newcommand*{\linkedinsocialsymbol}{}
+ \newcommand*{\twittersocialsymbol} {}
+ \newcommand*{\githubsocialsymbol}  {}
++\newcommand*{\stackoverflowsocialsymbol}{}
+ 
+ % other
+ %------
+
+=== modified file 'moderncviconsawesome.sty'
+--- moderncviconsawesome.sty	2013-04-29 17:45:09 +0000
++++ moderncviconsawesome.sty	2013-07-14 20:07:39 +0000
+@@ -38,6 +38,28 @@
+ \renewcommand*{\linkedinsocialsymbol}{\faLinkedinSign~}       % alternative: \faLinkedin
+ \renewcommand*{\twittersocialsymbol} {\faTwitter~}
+ \renewcommand*{\githubsocialsymbol}  {\faGithub~}
++\renewcommand*{\stackoverflowsocialsymbol}{%
++  \protect\raisebox{0em}{%
++    \protect\begin{tikzpicture}[y=0.08em,x=0.08em, xscale=0.2, yscale=-0.2, inner sep=0pt, outer sep=0pt]
++  \protect\path[fill=color2] (8.2067,36.9635) -- (12.6080,37.0067) -- (12.4545,56.6051)
++    -- (41.7458,56.6051) -- (41.7458,37.0776) -- (46.3836,37.0776) --
++    (46.3836,61.3649) -- (8.1829,61.3649) -- (8.2067,36.9636) -- cycle;
++  \protect\path[fill=color2,rounded corners=0.0000cm] (15.3837,48.5500) rectangle
++    (38.3285,53.4319);
++  \protect\path[cm={{0.99537,0.09607,-0.09607,0.99537,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (19.6679,38.0512) rectangle (42.7347,43.0551);
++  \protect\path[cm={{0.9624,0.27163,-0.27163,0.9624,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (25.4470,23.8114) rectangle (48.5139,28.8154);
++  \protect\path[cm={{0.85598,0.51701,-0.51701,0.85598,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (29.6486,3.8206) rectangle (52.7155,8.8246);
++  \protect\path[cm={{0.58243,0.81288,-0.81288,0.58243,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (26.6464,-23.5147) rectangle (49.7133,-18.5108);
++  \protect\path[cm={{0.16481,0.98633,-0.98633,0.16481,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (11.1079,-49.0813) rectangle (34.1748,-44.0774);
++    \protect\end{tikzpicture}}%
++  ~}
++
++
+ 
+ 
+ % if XeTeX or LuaTeX is not used, load the marvosym icon set instead
+
+=== modified file 'moderncviconsletters.sty'
+--- moderncviconsletters.sty	2013-04-29 17:45:09 +0000
++++ moderncviconsletters.sty	2013-07-14 20:07:39 +0000
+@@ -43,6 +43,7 @@
+ \renewcommand*{\linkedinsocialsymbol}{\hbox to 1.1em{\textbf{in}}~}
+ \renewcommand*{\twittersocialsymbol} {\hbox to 1.1em{\textbf{tw}}~}
+ \renewcommand*{\githubsocialsymbol}  {\hbox to 1.1em{\textbf{gh}}~}
++\renewcommand*{\stackoverflowsocialsymbol}{\hbox to 1.1em{\textbf{so}}~}
+ 
+ \renewcommand*{\listitemsymbol}      {\labelitemi~}
+ 
+
+=== modified file 'moderncviconsmarvosym.sty'
+--- moderncviconsmarvosym.sty	2013-04-29 17:45:09 +0000
++++ moderncviconsmarvosym.sty	2013-07-14 20:07:39 +0000
+@@ -222,6 +222,26 @@
+       \protect\end{scope}%
+     \protect\end{tikzpicture}}%
+   ~}
++\renewcommand*{\stackoverflowsocialsymbol}{%
++  \protect\raisebox{0em}{%
++    \protect\begin{tikzpicture}[y=0.08em,x=0.08em, xscale=0.2, yscale=-0.2, inner sep=0pt, outer sep=0pt]
++  \protect\path[fill=color2] (8.2067,36.9635) -- (12.6080,37.0067) -- (12.4545,56.6051)
++    -- (41.7458,56.6051) -- (41.7458,37.0776) -- (46.3836,37.0776) --
++    (46.3836,61.3649) -- (8.1829,61.3649) -- (8.2067,36.9636) -- cycle;
++  \protect\path[fill=color2,rounded corners=0.0000cm] (15.3837,48.5500) rectangle
++    (38.3285,53.4319);
++  \protect\path[cm={{0.99537,0.09607,-0.09607,0.99537,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (19.6679,38.0512) rectangle (42.7347,43.0551);
++  \protect\path[cm={{0.9624,0.27163,-0.27163,0.9624,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (25.4470,23.8114) rectangle (48.5139,28.8154);
++  \protect\path[cm={{0.85598,0.51701,-0.51701,0.85598,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (29.6486,3.8206) rectangle (52.7155,8.8246);
++  \protect\path[cm={{0.58243,0.81288,-0.81288,0.58243,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (26.6464,-23.5147) rectangle (49.7133,-18.5108);
++  \protect\path[cm={{0.16481,0.98633,-0.98633,0.16481,(0.0,0.0)}},fill=color2,rounded
++    corners=0.0000cm] (11.1079,-49.0813) rectangle (34.1748,-44.0774);
++    \protect\end{tikzpicture}}%
++  ~}
+ 
+ 
+ \endinput
+
