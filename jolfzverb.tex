@@ -15,8 +15,6 @@
 \email{jolfzverb@gmail.com}
 \social[linkedin]{usishchev}
 \social[github]{jolfzverb}
-\social[stackoverflow][stackoverflow.com/users/5024480/yury-usishchev]
-       {yury-usishchev}
 %\photo[64pt][0.4pt]{picture} %TODO
 \pretolerance=10000
 \tolerance=-1
@@ -24,13 +22,24 @@
 \begin{document}
 
 \makecvtitle
+\section{Summary}
+\cvline
+  {}{
+Three years of experience in toolchain-related development including
+contribution to open-source projects like binutils, coreutils, EFL.
+Deep knowledge of system libraries (glibc, rtld) and toolchain parts (GCC, binutils, LLVM).
+Lots of experience in debugging and single-line text processing.
+}
+
 \section{Technical skills}
 \label{sec:skills}
 \subsection{Basic skills}
 \cvline
-  {Unix}{overall system knowledge: memory management, process management, vfs, networks,\linebreak{} lots of experience in single-line text processing, good issues investigation skills}
+  {Languages}{C, C++, bash, perl, python, sed}
 \cvline
-  {Languages}{C, bash, sed, C++, perl, python}
+  {Hardware}{ARMv7, ARMv8, NEON instructions}
+\cvline
+  {English}{Upper intermediate}
 \subsection{Developer tools}
 \cvdoubleitem
   {SCM}{git, svn}
@@ -44,44 +53,89 @@
 \cvdoubleitem
   {Profiling}{valgrind, perf}
   {Docs}{doxygen, \LaTeX}
-\subsection{Developer systems}
 \cvdoubleitem
   {Bug tracking}{Gerrit, Jira, Confluence}
   {Build system}{OBS}
 
 \section{Experience}
 \label{sec:exp}
-\cventry{2013--now}{Software Engineer}{Samsung Research Russia}{Moscow}{}
-        {Tizen toolchain support and development.\newline{}
-Detailed achievements:
+\cventry {2016--now} {Software Engineer} {Samsung Research Russia} {Moscow} {}
+        {Tizen toolchain support and development, Tizen Toolchain team.\newline{}
+          \textbf{Project details:}\newline{}
+          Support and improvement of Tizen platform through toolchain technologies. This includes keeping toolchain sources up-to-date, system-wide optimizations and sanitization (LTO, PGO, Sanitizers).\newline{}
+          \textbf{Responsibilities:}
+          \begin{itemize}
+          \item Develop a tool set capable of automatic reduce of symbol visibility of C and C++ packages.
+          \end{itemize}
+\textbf{Personal deliverables and artifacts:}
 \begin{itemize}
-\item Enabled new architecture in Tizen, AArch64\footnotemark[1]
-\item Hand-optimized routines for low-level image processing in Enlightenment
-      Foundation Libraries using inline asm code and GCC intrinsics for ARM and
-      AArch64.\footnotemark[2]
-\item Multiple toolchain enhancements in Tizen build system\footnotemark[3]
-  \begin{itemize}
-    \item Enabled project-wide address sanitizer\footnotemark[4]
-    \item Enabled project-wide clang build
+\item Created tool set:
+\begin{itemize}
+\item Clang LibTooling based tool for source processing (C++)
+\item Bash script to process OBS- and git-related aspect of package processing.
   \end{itemize}
+\item Several patches with cleanup and visibility reduce were promoted to upstream.
+  \end{itemize}
+        }
+\cventry {2015--2016} {Software Engineer} {Samsung Research Russia} {Moscow} {}
+        {Tizen toolchain support and development, Tizen Toolchain team.\newline{}
+          \textbf{Project details:}\newline{}
+          Support and improvement of Tizen platform through toolchain technologies. This included keeping toolchain sources up-to-date, system-wide optimizations and sanitization(LTO, Address Sanitizer),
+          AArch64-specific optimizations of core libraries and toolchain packages.
+          \textbf{Responsibilities:}
+          \begin{itemize}
+          \item Support of development projects in Tizen OBS
+          \item Enabling of Address Sanitizer for Tizen packages
+          \item Porting of evas optimization to AArch64
+          \end{itemize}
+\textbf{Personal deliverables and artifacts:}
+\begin{itemize}
+\item Reimplemented hot paths in evas library of Enlightenment Foundation Libraries using GCC intrinsics. Performance improvements up to 30\% for AArch64.
+\item Enabled project-wide address sanitizer, found and fixed several bugs in Tizen and upstream codebase(coreutils and binutils)
+\item Enabled project-wide clang build
+\item Refactored build acceleration system for ARMv7 and ARMv8 builds in Tizen OBS
+  \end{itemize}
+        }
+
+\cventry{2014--2015}{Junior Software Engineer}{Samsung Research Russia}{Moscow}{}
+        {Tizen AArch64 enabling, Tizen Toolchain team.\newline{}
+\textbf{Project details:}\newline{}
+Enable AArch64 build for all Tizen packages in main Tizen OBS instance. This included manual bootstrap of core packages, required for automated builds in OBS environment,
+project configuration and fix of all build problems. Toolchain packages were updated as well for better support of AArch64.\newline{}
+\textbf{Responsibilities:}
+\begin{itemize}
+\item Manual build of rpm packages for later use in OBS
+\item Project acquaintance (configuration consistency, packages build fix)
+\end{itemize}
+\textbf{Personal deliverables and artifacts:}
+\begin{itemize}
+\item Learned OBS and RPM internals
+\item AArch64 was enabled for all Tizen profiles
+\item Lots of patches and build fixes were introduced to Tizen codebase
 \end{itemize}}
+
+\cventry{2013--2014}{Junior Software Engineer}{Samsung Research Russia}{Moscow}{}
+        {Optimizing Tizen platform, Tizen Toolchain team.\newline{}
+\textbf{Project details:}\newline{}
+Optimization of Tizen operating system for mobile devices (ARMv7). Profiling and optimization of Tizen applications (both C and C++) startup and operation performance,
+binary size, battery consumption from point of view of compiler technologies. Deliverables included lots of system-wide optimization by compiler options (visibility=hidden, autovectorization, PGO)
+and several hand-written optimizations of core libraries and software.\newline{}
+\textbf{Responsibilities:}
+\begin{itemize}
+\item Performance, battery consumption profiling
+\item Applications and library optimization
+\end{itemize}
+\textbf{Personal deliverables and artifacts:}
+\begin{itemize}
+\item Learned arm SIMD instruction set - NEON
+\item Optimized hot paths in evas library of Enlightenment Foundation Libraries using inline vector assembly. Performance improvements - up to 30\% on library benchmarks on ARMv7.
+\end{itemize}}
+
 \cventry{2012--2014}{Junior Researcher}
         {Technological Institute for Superhard and Novel Carbon Materials}
         {Moscow}{}{Development of new image processing system in
                    Scanning Probe Microscope(C++, OpenCV)}
 
-\footnotetext[1]{\href{https://lists.tizen.org/pipermail/dev/2014-December/005511.html}
-                      {\texttt{https://lists.tizen.org/pipermail/dev/2014-December/005511.html}}
-                }
-\footnotetext[2]{\href{https://phab.enlightenment.org/p/jolfzverb/}
-                      {\texttt{https://phab.enlightenment.org/p/jolfzverb/}}
-                }
-\footnotetext[3]{\href{https://build.tizen.org/}
-                      {\texttt{https://build.tizen.org/}}
-                }
-\footnotetext[4]{\href{http://lists.gnu.org/archive/html/bug-coreutils/2015-02/msg00005.html}
-                      {\texttt{http://lists.gnu.org/archive/html/bug-coreutils/2015-02/msg00005.html}}
-                }
 
 \section{Education}
 \label{sec:edu}
