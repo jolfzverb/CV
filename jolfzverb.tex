@@ -1,5 +1,6 @@
 % used template from moderncv
-\documentclass[11pt,a4paper]{moderncv}
+\documentclass[12pt,a4paper]{moderncv}
+%\usepackage[14pt]{extsizes}
 
 \moderncvstyle{classic}
 \moderncvcolor{grey}
@@ -23,119 +24,40 @@
 
 \makecvtitle
 \section{Summary}
-\cvline
-  {}{
-Three years of experience in toolchain-related development including
-contribution to open-source projects like binutils, coreutils, EFL.
-Deep knowledge of system libraries (glibc, rtld) and toolchain parts (GCC, binutils, LLVM).
-Lots of experience in debugging and single-line text processing.
+\cvline {}{
+5 years of experience in C and C++ development, from system-level development of compilers,
+libraries and drivers to high-efficient web services.
+3.5 years work with Tizen toolchain team, developing for gcc, llvm, glibc and many other system packages.
+Several contributions to open-source projects besides Tizen.
 }
 
 \section{Technical skills}
-\label{sec:skills}
-\subsection{Basic skills}
 \cvline
-  {Languages}{C, C++, bash, perl, python, sed}
-\cvline
-  {Hardware}{ARMv7, ARMv8, NEON instructions}
-\cvline
-  {English}{Upper intermediate}
-\subsection{Developer tools}
-\cvdoubleitem
-  {SCM}{git, svn}
-  {Testing}{googletest, check; ctest, dejagnu}
-\cvdoubleitem
-  {Build}{make, cmake, autotools}
-  {Packaging}{rpm, rpmbuild}
-\cvdoubleitem
-  {Debug}{gdb, strace, objdump, readelf}
-  {Status}{top, iotop, traceroute, tcpdump}
-\cvdoubleitem
-  {Profiling}{valgrind, perf}
-  {Docs}{doxygen, \LaTeX}
-\cvdoubleitem
-  {Bug tracking}{Gerrit, Jira, Confluence}
-  {Build system}{OBS}
+  {}{C, C++, python, bash, perl, sed,
+  ARMv7, ARMv8, NEON,
+  git, make, cmake, autotools,
+  rpm, rpmbuild, dpkg
+  gdb, strace, objdump, readelf,
+  valgrind, perf,
+  fastcgi2, nginx, mongodb, redis
+}
 
 \section{Experience}
-\label{sec:exp}
-\cventry {2016--now} {Software Engineer} {Samsung Research Russia} {Moscow} {}
+\cventry {2017--now} {Software Engineer} {Yandex.Taxi} {Moscow} {}
+        {Yandex.Taxi product development\newline{}
+        Backend development in C++ and python for Yandex.Taxi service.
+}
+\cventry {2016--2017} {Software Engineer} {Contactless devices} {Dolgoprudny} {}
+        {Wiren Board support and development.\newline{}
+        First experience in remote position. Developed for WirenBoard system, worked with KNX,
+        RS-485 devices, implemented CI for firmware.
+}
+\cventry {2013--2016} {Software Engineer} {Samsung Research Russia} {Moscow} {}
         {Tizen toolchain support and development, Tizen Toolchain team.\newline{}
-          \textbf{Project details:}\newline{}
-          Support and improvement of Tizen platform through toolchain technologies. This includes keeping toolchain sources up-to-date, system-wide optimizations and sanitization (LTO, PGO, Sanitizers).\newline{}
-          \textbf{Responsibilities:}
-          \begin{itemize}
-          \item Develop a tool set capable of automatic reduce of symbol visibility of C and C++ packages.
-          \end{itemize}
-\textbf{Personal deliverables and artifacts:}
-\begin{itemize}
-\item Created tool set:
-\begin{itemize}
-\item Clang LibTooling based tool for source processing (C++)
-\item Bash script to process OBS- and git-related aspect of package processing.
-  \end{itemize}
-\item Several patches with cleanup and visibility reduce were promoted to upstream.
-  \end{itemize}
-        }
-\cventry {2015--2016} {Software Engineer} {Samsung Research Russia} {Moscow} {}
-        {Tizen toolchain support and development, Tizen Toolchain team.\newline{}
-          \textbf{Project details:}\newline{}
-          Support and improvement of Tizen platform through toolchain technologies. This included keeping toolchain sources up-to-date, system-wide optimizations and sanitization(LTO, Address Sanitizer),
-          AArch64-specific optimizations of core libraries and toolchain packages.
-          \textbf{Responsibilities:}
-          \begin{itemize}
-          \item Support of development projects in Tizen OBS
-          \item Enabling of Address Sanitizer for Tizen packages
-          \item Porting of evas optimization to AArch64
-          \end{itemize}
-\textbf{Personal deliverables and artifacts:}
-\begin{itemize}
-\item Reimplemented hot paths in evas library of Enlightenment Foundation Libraries using GCC intrinsics. Performance improvements up to 30\% for AArch64.
-\item Enabled project-wide address sanitizer, found and fixed several bugs in Tizen and upstream codebase(coreutils and binutils)
-\item Enabled project-wide clang build
-\item Refactored build acceleration system for ARMv7 and ARMv8 builds in Tizen OBS
-  \end{itemize}
-        }
-
-\cventry{2014--2015}{Junior Software Engineer}{Samsung Research Russia}{Moscow}{}
-        {Tizen AArch64 enabling, Tizen Toolchain team.\newline{}
-\textbf{Project details:}\newline{}
-Enable AArch64 build for all Tizen packages in main Tizen OBS instance. This included manual bootstrap of core packages, required for automated builds in OBS environment,
-project configuration and fix of all build problems. Toolchain packages were updated as well for better support of AArch64.\newline{}
-\textbf{Responsibilities:}
-\begin{itemize}
-\item Manual build of rpm packages for later use in OBS
-\item Project acquaintance (configuration consistency, packages build fix)
-\end{itemize}
-\textbf{Personal deliverables and artifacts:}
-\begin{itemize}
-\item Learned OBS and RPM internals
-\item AArch64 was enabled for all Tizen profiles
-\item Lots of patches and build fixes were introduced to Tizen codebase
-\end{itemize}}
-
-\cventry{2013--2014}{Junior Software Engineer}{Samsung Research Russia}{Moscow}{}
-        {Optimizing Tizen platform, Tizen Toolchain team.\newline{}
-\textbf{Project details:}\newline{}
-Optimization of Tizen operating system for mobile devices (ARMv7). Profiling and optimization of Tizen applications (both C and C++) startup and operation performance,
-binary size, battery consumption from point of view of compiler technologies. Deliverables included lots of system-wide optimization by compiler options (visibility=hidden, autovectorization, PGO)
-and several hand-written optimizations of core libraries and software.\newline{}
-\textbf{Responsibilities:}
-\begin{itemize}
-\item Performance, battery consumption profiling
-\item Applications and library optimization
-\end{itemize}
-\textbf{Personal deliverables and artifacts:}
-\begin{itemize}
-\item Learned arm SIMD instruction set - NEON
-\item Optimized hot paths in evas library of Enlightenment Foundation Libraries using inline vector assembly. Performance improvements - up to 30\% on library benchmarks on ARMv7.
-\end{itemize}}
-
-\cventry{2012--2014}{Junior Researcher}
-        {Technological Institute for Superhard and Novel Carbon Materials}
-        {Moscow}{}{Development of new image processing system in
-                   Scanning Probe Microscope(C++, OpenCV)}
-
+        Made lots of improvements to Tizen platform from hand-written NEON assembly optimizations
+        (EFL, contributed to opensource\footnotemark[1]) to bug fixes and sanitizers checks to package updates.
+        Created AArch64 build environment from scratch.
+}
 
 \section{Education}
 \label{sec:edu}
@@ -144,5 +66,6 @@ and several hand-written optimizations of core libraries and software.\newline{}
 \cventry{2007--2012}{Applied Mathematics and Physics, Bachelor}
         {Moscow Institute of Physics and Technology}{}{}{}
 
+\footnotetext[1]{\href{https://phab.enlightenment.org/people/commits/883/}{\texttt{https://phab.enlightenment.org/people/commits/883/}} (Requires login)}
 
 \end{document}
